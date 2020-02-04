@@ -20,14 +20,8 @@ const {
 } = require(`../../constants`);
 
 module.exports = {
-  name: '--generate',
+  name: `--generate`,
   run(args, process) {
-    const [count] = args;
-    const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
-    if (countOffer > MAX_COUNT) {
-      console.info(`Не больше 1000 объявлений`);
-      return process.exit(ExitCode.success);
-    }
     const generateOffers = (count) => (
       Array(count).fill({}).map(() => ({
         category: shuffle(CATEGORIES).slice(getRandomInt(1, CATEGORIES.length - 1)),
@@ -38,8 +32,14 @@ module.exports = {
         sum: getRandomInt(SumRestrict.min, SumRestrict.max),
       }))
     );
+    const [count] = args;
+    const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
+    if (countOffer > MAX_COUNT) {
+      console.info(`Не больше 1000 объявлений`);
+      return process.exit(ExitCode.success);
+    }
     const content = JSON.stringify(generateOffers(countOffer));
-    fs.writeFile(FILE_NAME, content, (err) => {
+    return fs.writeFile(FILE_NAME, content, (err) => {
       if (err) {
         console.error(`Не смог записать данные в файл.`);
         return process.exit(ExitCode.failure);

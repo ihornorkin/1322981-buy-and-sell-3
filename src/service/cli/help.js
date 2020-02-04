@@ -13,4 +13,4 @@ module.exports = {
     --help:               печатает этот текст
     --generate <count>    формирует файл mocks.json`);
   }
-}
+};

@@ -1,3 +1,5 @@
+'use strict';
+
 const DEFAULT_COUNT = 1;
 const MAX_COUNT = 1000;
 const FILE_NAME = `mocks.json`;
@@ -49,8 +51,8 @@ const OfferType = {
 
 const PictureRestrict = {
   min: 1,
-  max: 16
-}
+  max: 16,
+};
 
 const SumRestrict = {
   min: 1000,
@@ -62,8 +64,8 @@ const DEFAULT_COMMAND = `--help`;
 
 const ExitCode = {
   success: 0,
-  failure: 1
-}
+  failure: 1,
+};
 
 module.exports = {
   DEFAULT_COUNT,

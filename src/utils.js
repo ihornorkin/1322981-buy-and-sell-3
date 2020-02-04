@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports.getRandomInt = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -18,4 +20,4 @@ module.exports.getPictureFileName = (randomNumber) => {
     return `item${randomNumber}.jpg`;
   }
   return `item0${randomNumber}.jpg`;
-}
+};
