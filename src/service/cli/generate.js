@@ -42,9 +42,9 @@ module.exports = {
     const content = JSON.stringify(generateOffers(countOffer));
     try {
       await fs.writeFile(FILE_NAME, content);
-      console.info(chalk.green(`Файл создан.`));
-    } catch {
-      console.error(chalk.red(`Не смог записать данные в файл.`));
+      return console.info(chalk.green(`Файл создан.`));
+    } catch (err) {
+      return console.error(chalk.red(`Не смог записать данные в файл.`));
     }
   }
 };
