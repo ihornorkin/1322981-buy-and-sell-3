@@ -24,7 +24,6 @@ module.exports = {
   name: `--generate`,
   async run(args, process) {
     const generateOffers = (count, titles, categories, sentences) => (
-      console.log(categories, '>>> categoris'),
       Array(count).fill({}).map(() => ({
         category: shuffle(categories).slice(getRandomInt(1, categories.length - 1)),
         picture: getPictureFileName(getRandomInt(PictureRestrict.min, PictureRestrict.max)),
