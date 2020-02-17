@@ -44,7 +44,8 @@ module.exports = {
       await fs.writeFile(FILE_NAME, content);
       return console.info(chalk.green(`Файл создан.`));
     } catch (err) {
-      return console.error(chalk.red(`Не смог записать данные в файл.`));
+      console.error(chalk.red(`Не смог записать данные в файл.`));
+      return process.exit(ExitCode.failure);
     }
   }
 };
