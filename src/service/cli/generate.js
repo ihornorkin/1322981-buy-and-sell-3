@@ -10,36 +10,52 @@ const {
 const {
   FILE_NAME,
   DEFAULT_COUNT,
-  CATEGORIES,
-  SENTENCES,
-  TITLES,
   OfferType,
   PictureRestrict,
   SumRestrict,
   MAX_COUNT,
-  ExitCode
+  ExitCode,
+  FILE_SENTENCES_PATH,
+  FILE_TITLES_PATH,
+  FILE_CATEGORIES_PATH
 } = require(`../../constants`);
 
 module.exports = {
   name: `--generate`,
   async run(args, process) {
-    const generateOffers = (count) => (
+    const generateOffers = (count, titles, categories, sentences) => (
+      console.log(categories, '>>> categoris'),
       Array(count).fill({}).map(() => ({
-        category: shuffle(CATEGORIES).slice(getRandomInt(1, CATEGORIES.length - 1)),
+        category: shuffle(categories).slice(getRandomInt(1, categories.length - 1)),
         picture: getPictureFileName(getRandomInt(PictureRestrict.min, PictureRestrict.max)),
-        description: shuffle(SENTENCES).slice(1, 5).join(` `),
-        title: TITLES[getRandomInt(0, TITLES.length - 1)],
+        description: shuffle(sentences).slice(1, 5).join(` `),
+        title: titles[getRandomInt(0, titles.length - 1)],
         type: Object.keys(OfferType)[Math.floor(Math.random() * Object.keys(OfferType).length)],
         sum: getRandomInt(SumRestrict.min, SumRestrict.max),
       }))
     );
+
+    const readContent = async (filePath) => {
+      try {
+        const content = await fs.readFile(filePath, `utf8`);
+        return content.split(`\n`).slice(0, -1);
+      } catch (err) {
+        console.error(chalk.red(err));
+        return [];
+      }
+    };
+
+    const sentences = await readContent(FILE_SENTENCES_PATH);
+    const titles = await readContent(FILE_TITLES_PATH);
+    const categories = await readContent(FILE_CATEGORIES_PATH);
+
     const [count] = args;
     const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
     if (countOffer > MAX_COUNT) {
       console.info(`Не больше 1000 объявлений`);
       return process.exit(ExitCode.success);
     }
-    const content = JSON.stringify(generateOffers(countOffer));
+    const content = JSON.stringify(generateOffers(countOffer, titles, categories, sentences));
     try {
       await fs.writeFile(FILE_NAME, content);
       return console.info(chalk.green(`Файл создан.`));
