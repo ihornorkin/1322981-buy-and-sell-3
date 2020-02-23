@@ -31,6 +31,8 @@ const ExitCode = {
   failure: 1,
 };
 
+const DEFAULT_PORT = 3000;
+
 module.exports = {
   DEFAULT_COUNT,
   FILE_NAME,
@@ -43,5 +45,15 @@ module.exports = {
   MAX_COUNT,
   FILE_SENTENCES_PATH,
   FILE_TITLES_PATH,
-  FILE_CATEGORIES_PATH
+  FILE_CATEGORIES_PATH,
+  DEFAULT_PORT
 };
+
+module.exports.HttpCode = {
+  OK: 200,
+  NOT_FOUND: 404,
+  INTERNAL_SERVER_ERROR: 500,
+  FORBIDDEN: 403,
+  UNAUTHORIZED: 401,
+};
+
