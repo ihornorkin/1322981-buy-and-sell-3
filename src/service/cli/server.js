@@ -3,7 +3,7 @@
 const chalk = require(`chalk`);
 const http = require(`http`);
 const fs = require(`fs`).promises;
-const { DEFAULT_PORT, HttpCode, FILE_NAME } = require(`../../constants`);
+const {DEFAULT_PORT, HttpCode, FILE_NAME} = require(`../../constants`);
 
 module.exports = {
   name: `--server`,

@@ -32,6 +32,7 @@ const ExitCode = {
 };
 
 const DEFAULT_PORT = 3000;
+const DEFAULT_EXPRESS_PORT = 8080;
 
 module.exports = {
   DEFAULT_COUNT,
@@ -46,7 +47,8 @@ module.exports = {
   FILE_SENTENCES_PATH,
   FILE_TITLES_PATH,
   FILE_CATEGORIES_PATH,
-  DEFAULT_PORT
+  DEFAULT_PORT,
+  DEFAULT_EXPRESS_PORT
 };
 
 module.exports.HttpCode = {
