@@ -1,11 +1,12 @@
 'use strict';
 
 const {Router} = require(`express`);
+const {THINKS, COMMENTS} = require(`../../constants`);
 const offers = new Router();
 
-offers.get(`/category/:id`, (req, res) => res.send(`/offers/category/:id`));
-offers.get(`/add`, (req, res) => res.send(`/offers/add`));
-offers.get(`/edit/:id`, (req, res) => res.send(`/offers/edit/:id`));
-offers.get(`/:id`, (req, res) => res.send(`/offers/:id`));
+offers.get(`/category/:id`, (req, res) => res.render(`offers/category`, {thinks: THINKS}));
+offers.get(`/add`, (req, res) => res.render(`offers/new-ticket`));
+offers.get(`/edit/:id`, (req, res) => res.render(`offers/ticket-edit`));
+offers.get(`/:id`, (req, res) => res.render(`offers/ticket`, {comments: COMMENTS}));
 
 module.exports = offers;
