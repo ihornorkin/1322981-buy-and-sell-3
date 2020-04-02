@@ -1,0 +1,17 @@
+extends ../blocks/layout.pug
+block main
+  section.comments
+    .comments__wrapper
+      h1.visually-hidden Страница комментариев
+      .comments__block
+        each think in thinks
+          .comments__header
+            a(href="#").announce-card
+              h2.announce-card__title #{think.name}
+              span.announce-card__info
+                span.announce-card__price ₽ #{think.price}
+                span.announce-card__type #{think.label}
+          ul.comments-list
+            each comment in think.comments
+              include ../blocks/comment.pug
+              +comment(comment)

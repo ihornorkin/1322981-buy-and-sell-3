@@ -34,6 +34,93 @@ const ExitCode = {
 const DEFAULT_PORT = 3000;
 const DEFAULT_EXPRESS_PORT = 8080;
 
+const THINKS = [{
+  name: `Фотик Canon`,
+  price: `32 000`,
+  description: `Куплю вот такую итальянскую кофеварку, можно любой фирмы...`,
+  label: `Куплю`,
+  image: `/img/item08.jpg`,
+  category: `ЭЛЕКТРОНИКА`
+},
+{
+  name: `Кофемашина`,
+  price: `26 000`,
+  description: `Продам свое старое кресло, чтобы сидеть и читать книги зимними...`,
+  label: `ПРОДАМ`,
+  image: `/img/item15.jpg`,
+  category: `ЭЛЕКТРОНИКА`
+},
+{
+  name: `Фотик Canon`,
+  price: `32 000`,
+  description: `Куплю вот такую итальянскую кофеварку, можно любой фирмы...`,
+  label: `Куплю`,
+  image: `/img/item08.jpg`,
+  category: `ЭЛЕКТРОНИКА`
+},
+{
+  name: `Кофемашина`,
+  price: `26 000`,
+  description: `Продам свое старое кресло, чтобы сидеть и читать книги зимними...`,
+  label: `ПРОДАМ`,
+  image: `/img/item15.jpg`,
+  category: `ЭЛЕКТРОНИКА`
+},
+{
+  name: `Фотик Canon`,
+  price: `32 000`,
+  description: `Куплю вот такую итальянскую кофеварку, можно любой фирмы...`,
+  label: `Куплю`,
+  image: `/img/item08.jpg`,
+  category: `ЭЛЕКТРОНИКА`
+},
+{
+  name: `Кофемашина`,
+  price: `26 000`,
+  description: `Продам свое старое кресло, чтобы сидеть и читать книги зимними...`,
+  label: `ПРОДАМ`,
+  image: `/img/item15.jpg`,
+  category: `ЭЛЕКТРОНИКА`
+},
+{
+  name: `Фотик Canon`,
+  price: `32 000`,
+  description: `Куплю вот такую итальянскую кофеварку, можно любой фирмы...`,
+  label: `Куплю`,
+  image: `/img/item08.jpg`,
+  category: `ЭЛЕКТРОНИКА`
+},
+{
+  name: `Кофемашина`,
+  price: `26 000`,
+  description: `Продам свое старое кресло, чтобы сидеть и читать книги зимними...`,
+  label: `ПРОДАМ`,
+  image: `/img/item15.jpg`,
+  category: `ЭЛЕКТРОНИКА`
+}];
+
+const GOOD = [{
+  name: `Ленд Ровер`,
+  price: `900 000`,
+  label: `ПРОДАМ`
+}];
+
+const COMMENTS = [{
+  avatar: `/img/avatar03.jpg`,
+  name: `Александр Бурый`,
+  content: `А что с прогоном автомобиля? Также вижу на фото зимнюю резину. А летняя идет ли впридачу?`
+},
+{
+  avatar: `/img/avatar04.jpg`,
+  name: `Анатолий Хакимов`,
+  content: `Хочу прийти посмотреть на авто в среду. Мой телефон 89254455566. Готовы принять?`
+},
+{
+  avatar: `/img/avatar02.jpg`,
+  name: `Георгий Шпиц`,
+  content: `Что это за рухлядь? Стыдно такое даже фотографировать, не то, что&nbsp;продавать.`
+}];
+
 module.exports = {
   DEFAULT_COUNT,
   FILE_NAME,
@@ -48,7 +135,10 @@ module.exports = {
   FILE_TITLES_PATH,
   FILE_CATEGORIES_PATH,
   DEFAULT_PORT,
-  DEFAULT_EXPRESS_PORT
+  DEFAULT_EXPRESS_PORT,
+  THINKS,
+  COMMENTS,
+  GOOD
 };
 
 module.exports.HttpCode = {

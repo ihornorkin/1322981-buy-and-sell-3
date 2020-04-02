@@ -1,0 +1,10 @@
+mixin comment(comment)
+  li.js-card
+    .comment-card
+      .comment-card__header
+        a(href="#").comment-card__avatar.avatar
+          img(src=comment.avatar alt="Аватар пользователя")
+        p.comment-card__author #{comment.name}
+      .comment-card__content
+        p #{comment.content}
+      button(type="button").comment-card__delete.js-delete Удалить

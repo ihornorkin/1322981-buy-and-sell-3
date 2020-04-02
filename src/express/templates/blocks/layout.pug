@@ -1,0 +1,9 @@
+include head.pug
++head()
+include body.pug
+  block content
+    include header.pug
+    main.page-content
+      block main
+    include footer.pug
+  include scripts.pug

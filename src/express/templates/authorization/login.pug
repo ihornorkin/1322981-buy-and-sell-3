@@ -1,0 +1,16 @@
+extends ../blocks/layout.pug
+block main
+  section.login
+    form(action="#" method="post" enctype="multipart/form-data").login__form.form
+      .login__title
+        a(href="sign-up.html").login__link Регистрация
+        h2 Вход
+      .form__field.login__field
+        input(type="email" name="user-email" id="user-email" required="").js-field
+        label(for="user-email") Эл. почта
+        span Обязательное поле
+      .form__field.login__field
+        input(type="password" name="user-password" id="user-password" required="").js-field
+        label(for="user-password") Пароль
+        span Обязательное поле
+      button(type="submit" disabled="").login__button.btn.btn--medium.js-button Войти

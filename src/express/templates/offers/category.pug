@@ -1,0 +1,27 @@
+extends ../blocks/layout.pug
+block main
+  include ../blocks/categories.pug
+  section.tickets-list
+    h2.visually-hidden Предложения из категории электроника
+    .tickets-list__wrapper
+      .tickets-list__header
+        p.tickets-list__title Электроника
+          b.js-qty 62
+      ul
+        each think in thinks
+          include ../blocks/card.pug
+          +card(think)
+      .tickets-list__pagination
+        ul.pagination
+          li
+            a(href="#").active 1
+          li
+            a(href="#") 2
+          li
+            a(href="#") 3
+          li
+            a(href="#") 4
+          li
+            a(href="#") 5
+          li
+            a(href="#") дальше
