@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require(`fs`).promises;
 const { FILE_NAME } = require(`../../constants`);
 let data = null;

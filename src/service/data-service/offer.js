@@ -1,4 +1,7 @@
+'use strict';
+
 const {MAX_ID_LENGTH} = require(`../../constants`);
+const {nanoid} = require(`nanoid`);
 
 class OfferService {
   constructor(offers) {
