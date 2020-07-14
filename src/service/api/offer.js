@@ -1,7 +1,7 @@
 'use strict';
 
-const { Router } = require(`express`);
-const { HttpCode } = require(`../../constants`);
+const {Router} = require(`express`);
+const {HttpCode} = require(`../../constants`);
 const offerValidator = require(`../middlewares/offer-validator`);
 const commentValidator = require(`../middlewares/comment-validator`);
 const offerExist = require(`../middlewares/offer-exists`);
@@ -25,7 +25,7 @@ module.exports = (app, offerService, commentService) => {
   });
 
   route.put(`/:offerId`, offerValidator, (req, res) => {
-    const { offerId } = req.params;
+    const {offerId} = req.params;
     const existOffer = offerService.findOne(offerId);
 
     if (!existOffer) {
@@ -40,7 +40,7 @@ module.exports = (app, offerService, commentService) => {
   });
 
   route.get(`/:offerId`, (req, res) => {
-    const { offerId } = req.params;
+    const {offerId} = req.params;
     const offer = offerService.findOne(offerId);
 
     if (!offer) {
@@ -53,7 +53,7 @@ module.exports = (app, offerService, commentService) => {
   });
 
   route.delete(`/:offerId`, (req, res) => {
-    const { offerId } = req.params;
+    const {offerId} = req.params;
     const offer = offerService.drop(offerId);
 
     if (!offer) {
@@ -66,7 +66,7 @@ module.exports = (app, offerService, commentService) => {
   });
 
   route.get(`/:offerId/comments`, offerExist(offerService), (req, res) => {
-    const { offer } = res.locals;
+    const {offer} = res.locals;
     const comments = commentService.findAll(offer);
 
     res.status(HttpCode.OK)
@@ -75,8 +75,8 @@ module.exports = (app, offerService, commentService) => {
   });
 
   route.delete(`/:offerId/comments/:commentId`, offerExist(offerService), (req, res) => {
-    const { offer } = res.locals;
-    const { commentId } = req.params;
+    const {offer} = res.locals;
+    const {commentId} = req.params;
     const deletedComment = commentService.drop(offer, commentId);
 
     if (!deletedComment) {
@@ -89,7 +89,7 @@ module.exports = (app, offerService, commentService) => {
   });
 
   route.post(`/:offerId/comments`, [offerExist(offerService), commentValidator], (req, res) => {
-    const { offer } = res.locals;
+    const {offer} = res.locals;
     const comment = commentService.create(offer, req.body);
 
     return res.status(HttpCode.CREATED)

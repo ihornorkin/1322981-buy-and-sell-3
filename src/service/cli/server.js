@@ -1,6 +1,6 @@
 'use strict';
 
-const { DEFAULT_PORT, HttpCode, API_PREFIX } = require(`../../constants`);
+const {DEFAULT_PORT, HttpCode, API_PREFIX} = require(`../../constants`);
 const express = require(`express`);
 const getMockData = require(`../lib/get-mock-data`);
 const routes = require(`../api`);

@@ -5,7 +5,6 @@ const {Router} = require(`express`);
 const category = require(`./category`);
 const offer = require(`./offer`);
 const search = require(`./search`);
-search
 const {
   CategoryService,
   SearchService,
