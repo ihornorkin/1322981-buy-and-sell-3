@@ -7,6 +7,6 @@ block main
         a(href="#").tickets-list__btn.btn.btn--big
           span Новая публикация
       ul
-        each think in thinks
+        each offer in offers
           include ../blocks/card.pug
-          +card(think)
+          +card(offer)

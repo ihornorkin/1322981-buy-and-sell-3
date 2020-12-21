@@ -1,9 +1,22 @@
 'use strict';
 
 const {Router} = require(`express`);
-const {THINKS} = require(`../../constants`);
+const api = require(`../api`).getAPI();
 const search = new Router();
 
-search.get(`/`, (req, res) => res.render(`search/search-result`, {thinks: THINKS.slice(0, 2)}));
+search.get(`/`, async (req, res) => {
+  try {
+    const {search} = req.query;
+    const results = await api.search(search);
+
+    res.render(`search/search-result`, {
+      results
+    });
+  } catch (error) {
+    res.render(`search/search-result`, {
+      results: []
+    });
+  }
+});
 
 module.exports = search;

@@ -1,16 +1,16 @@
-mixin card(think)
+mixin card(offer)
   li.tickets-list__item
     .ticket-card.ticket-card--color06
       .ticket-card__img
-        img(src=think.image alt="Изображение товара")
+        img(src=`/img/${offer.picture}` alt="Изображение товара")
       .ticket-card__info
-        span.ticket-card__label #{think.label}
+        span.ticket-card__label #{offer.type === 'sale' ? 'Продам' : 'Куплю'}
         .ticket-card__categories
-          a(href="#") #{think.category}
+          a(href="#") #{offer.category}
         .ticket-card__header
           h3.ticket-card__title
-            a(href="#") #{think.name}
+            a(href="#") #{offer.title}
           p.ticket-card__price
-            span.js-sum #{think.name} ₽</p>
+            span.js-sum #{offer.sum} ₽</p>
         .ticket-card__desc
-          p #{think.description}
+          p #{offer.description}

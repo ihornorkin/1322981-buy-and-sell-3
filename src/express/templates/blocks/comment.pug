@@ -3,8 +3,8 @@ mixin comment(comment)
     .comment-card
       .comment-card__header
         a(href="#").comment-card__avatar.avatar
-          img(src=comment.avatar alt="Аватар пользователя")
-        p.comment-card__author #{comment.name}
+          img(src='/img/avatar03.jpg' alt="Аватар пользователя")
+        p.comment-card__author Александр Бурый
       .comment-card__content
-        p #{comment.content}
+        p #{comment.text}
       button(type="button").comment-card__delete.js-delete Удалить

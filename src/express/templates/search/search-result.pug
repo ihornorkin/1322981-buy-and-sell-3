@@ -4,18 +4,8 @@ block main
     h1.visually-hidden Результаты поиска
     .search-results__wrapper
       p.search-results__label Найдено
-       span.js-results 2 публикации
+       span.js-results #{` ${results.length}`} публикации
       ul.search-results__list
-        each think in thinks
+        each result in results
           include ../blocks/card.pug
-          +card(think)
-  section.tickets-list
-    h2.visually-hidden Самые новые предложения
-    .tickets-list__wrapper
-      .tickets-list__header
-        p.tickets-list__title Самое свежее
-        a(href="#").tickets-list__link Еще 25
-      ul
-        each think in thinks
-          include ../blocks/card.pug
-          +card(think)
+          +card(result)
