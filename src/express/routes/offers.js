@@ -5,7 +5,7 @@ const {THINKS, COMMENTS} = require(`../../constants`);
 const api = require(`../api`).getAPI();
 const multer = require(`multer`);
 const path = require(`path`);
-const {nanoid} = require(`nanoid`)
+const {nanoid} = require(`nanoid`);
 const offers = new Router();
 
 const UPLOAD_DIR = `../upload/img/`;

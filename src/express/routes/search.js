@@ -6,8 +6,7 @@ const search = new Router();
 
 search.get(`/`, async (req, res) => {
   try {
-    const {search} = req.query;
-    const results = await api.search(search);
+    const results = await api.search(req.query.search);
 
     res.render(`search/search-result`, {
       results

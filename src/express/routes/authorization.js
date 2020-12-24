@@ -1,7 +1,6 @@
 'use strict';
 
 const {Router} = require(`express`);
-const {THINKS} = require(`../../constants`);
 const api = require(`../api`).getAPI();
 const authorization = new Router();
 

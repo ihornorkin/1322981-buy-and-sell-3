@@ -17,12 +17,12 @@ class API {
   }
 
   async _load(url, options) {
-    const response = await this._http.request({ url, ...options });
+    const response = await this._http.request({url, ...options});
     return response.data;
   }
 
   getOffers() {
-    return this._load('/offers');
+    return this._load(`/offers`);
   }
 
   getOffer(id) {
@@ -30,11 +30,11 @@ class API {
   }
 
   search(query) {
-    return this._load(`/search`, { params: { query } });
+    return this._load(`/search`, {params: {query}});
   }
 
   async getCategories() {
-    return this._load('/categories');
+    return this._load(`/categories`);
   }
 
   async createOffer(data) {
