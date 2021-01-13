@@ -4,7 +4,7 @@ block main
     .ticket-form__wrapper
       h1.ticket-form__title Новая публикация
       .ticket-form__tile
-        form(action="#" method="post" enctype="multipart/form-data" autocomplete="off").ticket-form__form.form
+        form(action="/offers/add" method="post" enctype="multipart/form-data" autocomplete="off").ticket-form__form.form
           .ticket-form__avatar-container.js-preview-container
             .ticket-form__avatar.js-preview
             .ticket-form__field-avatar
@@ -25,10 +25,8 @@ block main
                 span Обязательное поле
             .ticket-form__row
               select(name="category" id="category-field" data-label="Выбрать категорию публикации").form__select.js-multiple-select
-                option(value="1") Дом
-                option(value="2") Спорт и отдых
-                option(value="3") Авто
-                option(value="4") Электроника
+                each category, index in categories
+                  option(value=index selected=category) #{category}
             .ticket-form__row
               .form__field.form__field--price
                 input(type="number" name="price" id="price-field" min="1" required="").js-field.js-price

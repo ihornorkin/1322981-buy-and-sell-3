@@ -7,15 +7,6 @@ block main
       .tickets-list__header
         p.tickets-list__title Самое свежее
       ul
-        each think in mostNew
+        each offer in offers
           include ./blocks/card.pug
-          +card(think)
-  section.tickets-list
-    h2.visually-hidden Самые обсуждаемые предложения
-    .tickets-list__wrapper
-      .tickets-list__header
-        p.tickets-list__title Самые обсуждаемые
-      ul
-        each think in mostDiscuss
-          include ./blocks/card.pug
-          +card(think)
+          +card(offer)
