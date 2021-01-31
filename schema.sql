@@ -43,3 +43,4 @@ CREATE TABLE offer_categories(
 );
 
 CREATE INDEX ON offers(title);
+
