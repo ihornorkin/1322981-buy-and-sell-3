@@ -5,12 +5,21 @@ const express = require(`express`);
 const getMockData = require(`../lib/get-mock-data`);
 const routes = require(`../api`);
 const loggerUtil = require(`../lib/logger`);
+const sequelize = require(`../lib/sequelize`);
 
 const logger = loggerUtil.getLogger({name: `api`});
 
 module.exports = {
   name: `--server`,
-  run(args) {
+  async run(args) {
+    try {
+      logger.info(`Trying to connect to database...`);
+      await sequelize.authenticate();
+    } catch (err) {
+      logger.error(`An error occured: ${err.message}`);
+      process.exit(1);
+    }
+    logger.info(`Connection to database established`);
     const [customPort] = args ? args : [];
     const port = Number.parseInt(customPort, 10) || DEFAULT_PORT;
 
