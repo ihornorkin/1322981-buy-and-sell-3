@@ -56,6 +56,10 @@ offers.get(`/edit/:id`, async (req, res) => {
   res.render(`offers/ticket-edit`, {offer, categories});
 });
 
-offers.get(`/:id`, (req, res) => res.render(`offers/ticket`, {comments: COMMENTS}));
+offers.get(`/:id`, async (req, res) => {
+  const {id} = req.params;
+  const offer = await api.getOffer(id, true);
+  res.render(`offers/ticket`, {offer, comments: COMMENTS});
+});
 
 module.exports = offers;
