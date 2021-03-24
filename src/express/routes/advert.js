@@ -10,7 +10,7 @@ advert.get(`/`, async (req, res) => {
 });
 
 advert.get(`/comments`, async (req, res) => {
-  const offers = await api.getOffers();
+  const offers = await api.getOffers({comments: true});
   const offer = {...offers[0]};
   res.render(`advert/comments`, {thinks: {offer}});
 });

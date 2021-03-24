@@ -6,7 +6,7 @@ mixin card(offer)
       .ticket-card__info
         span.ticket-card__label #{offer.type === 'sale' ? 'Продам' : 'Куплю'}
         .ticket-card__categories
-          a(href="#") #{offer.category}
+          a(href="#") #{offer.categories}
         .ticket-card__header
           h3.ticket-card__title
             a(href="#") #{offer.title}
